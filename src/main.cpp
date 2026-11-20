@@ -244,29 +244,20 @@ void nivel1(int *band, float *pX, float *pY, Color green, Texture2D player, Text
     Rectangle destRec = {*pX, *pY, nuevoAncho, nuevoAlto};
     Rectangle destinoRec = {1000.0f, 950.0f, 50.0f, 80.0f};
 
-    // 1. Origen: Tomamos la imagen de fondo completa
     Rectangle sourceBackground = {0.0f, 0.0f, (float)background.width, (float)background.height};
 
-    // 2. Destino: Forzamos que se dibuje desde la esquina (0,0) con un tamaño de 800x800
     Rectangle destBackground = {0.0f, 0.0f, 1950.0f, 1100.0f};
 
-    // 3. Origen de rotación (esquina superior izquierda)
-    Vector2 bgOrigin = {0.0f, 0.0f};
-
-    // 4. Dibujar el fondo estirado/ajustado a 800x800
-    DrawTexturePro(background, sourceBackground, destBackground, bgOrigin, 0.0f, WHITE);
-
-    // Dibujar el sprite usando DrawTextureRec en lugar de DrawCircle
-    Vector2 origin = {0.0f, 0.0f};
-    Vector2 place = {0.0f, 0.0f};
+    Vector2 origen = {0.0f, 0.0f};
 
     if (CheckCollisionRecs(destRec, destinoRec))
     {
         *band = 0;
     }
 
-    DrawTexturePro(player, sourceRec, destRec, origin, 0.0f, WHITE);
-    DrawTexturePro(zombie, bloque, destinoRec, place, 0.0f, WHITE);
+    DrawTexturePro(background, sourceBackground, destBackground, origen, 0.0f, WHITE);
+    DrawTexturePro(player, sourceRec, destRec, origen, 0.0f, WHITE);
+    DrawTexturePro(zombie, bloque, destinoRec, origen, 0.0f, WHITE);
 }
 //*********************************************************************
 void nivel2()

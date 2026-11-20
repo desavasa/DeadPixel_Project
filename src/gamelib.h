@@ -8,6 +8,36 @@
 //
 #include <raylib.h>
 
+// structs
+enum armas
+{
+    cuchillo,
+    pistola,
+    escopeta,
+    rifle
+};
+
+enum objetos
+{
+    botiquin,
+    comida,
+    cartuchos
+};
+
+typedef struct _player
+{
+    int vida;
+    int nivel;
+    int arma;
+    int inventario[4][4];
+} sTplayer;
+
+typedef struct _enemy
+{
+    int vida;
+    int ataque;
+} sTenemy;
+
 // Prototipos
 void mov_player(float *pX, float *pY);
 
